@@ -62,7 +62,7 @@ function activateSignedIn(signinUser) {
     if (signinUser.photoURL)  {
         document.getElementById('signinUserPix').src = signinUser.photoURL;
     } else {
-        document.getElementById('signinUserPix').src = "images/noprofilepix.png";
+        document.getElementById('signinUserPix').src = "./../images/noprofilepix.png";
     }
     $('#sgSigninUserName').text( signinUser.displayName);
     alert('User Sign In');
@@ -87,7 +87,7 @@ function activateSignedOut()    {
     topBarElement = document.getElementById("topBarMyPost");
     topBarElement.innerHTML = elements;
 
-    document.getElementById('signinUserPix').src = "images/noprofilepix.png";
+    document.getElementById('signinUserPix').src = "./../images/noprofilepix.png";
     $('#sgSigninUserName').text('Guest');
     signoutBtn.style.display = "none";
     settingBtn.style.display = "none";
@@ -232,7 +232,7 @@ $("#usignup").click(function() {
 });
 
 
-// SETTINGS 
+// SETTINGS
 // Allow User to change displayName & profile Pix
 $("#usettings").click(function() {
 
@@ -579,7 +579,7 @@ function defaultMoments()   {
     let cardString = `<br><div class="ui-body ui-body-a ui-corner-all">` +
                             `<h3>Today\'s Special Moments are Tomorrow\'s Memories..</h3>` +
                             `<h6><em>Posted by admin on unknown date/time</em></h6>` +
-                            `<img src="images/moments.jpg" width="100%">` +
+                            `<img src="./../images/moments.jpg" width="100%">` +
                             `<p>Some moments are nice, some are nicer, some are even worth sharing!</p>` +
                             `<div class="container">`+
                                 `<button data-role="button" class="ui-btn ui-btn-icon-notext ui-block-a ui-btn-corner-all ui-icon-like-yes"></button>` +
@@ -587,7 +587,7 @@ function defaultMoments()   {
                             `</div>`+
                         `</div>` ;
 
-    // set the default load page for both All Moments & My Moments page 
+    // set the default load page for both All Moments & My Moments page
     cardElement1.innerHTML = cardString;
     cardElement2.innerHTML = cardString;
 
@@ -828,14 +828,14 @@ function clearForm(theFormId)  {
             $('#sgPass').val("");
             $('#sgDisplayName').val("");
             //$('#sgProfilePixBtn').text("");
-            $('#sgProfilePix').attr('src', "images/noprofilepix.png");
+            $('#sgProfilePix').attr('src', "./../images/noprofilepix.png");
             break;
         case 'settings':
             $('#sgEmailX').val("");
             $('#sgPassX').val("");
             $('#sgDisplayNameX').val("");
             //$('#sgProfilePixBtn').text("");
-            $('#sgProfilePixX').attr('src', "images/noprofilepix.png");
+            $('#sgProfilePixX').attr('src', "./../images/noprofilepix.png");
             break;
         case 'new-post' :
             $('#nptitle').val("");

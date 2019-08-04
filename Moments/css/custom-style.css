@@ -68,7 +68,7 @@ a.ui-btn.ui-icon-bars.ui-btn-icon-left {
 }
 
 .ui-icon-menu {
-    background-image: url(“./images/menu.png”);
+    background-image: url(“images/menu.png”);
     background-size: 18px 18px;
 }
 
@@ -391,7 +391,7 @@ li.lv-menu-item   {
 
 
 .ui-icon-like-yes:after {
-    background:  url("./images/like.svg") no-repeat rgba(255, 255, 255, 0.4) !important;
+    background:  url("images/like.svg") no-repeat rgba(255, 255, 255, 0.4) !important;
     border: none;
     outline: none;
     box-shadow: none;
@@ -400,7 +400,7 @@ li.lv-menu-item   {
 }
 
 .ui-icon-like-no:after {
-    background:  url("./images/no-like.svg") no-repeat rgba(255, 255, 255, 0.4) !important;
+    background:  url("images/no-like.svg") no-repeat rgba(255, 255, 255, 0.4) !important;
     border: none;
     outline: none;
     box-shadow: none;

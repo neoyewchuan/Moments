@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<!--<html lang="en" xmlns="http://www.w3.org/1999/html"> -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport=" content="width=device-width initial-scale=1">
+    <title>Moments</title>
+
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css"/>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.css"/>
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile.icons-1.4.5.min.css"/>
+    <link rel="stylesheet" href="css/custom-style.css"/>
+
+
+    <!--<link href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+    -->
+
+
+    <!--<script src="js/moment.js"></script> -->
+
+
+
+</head>
+<body>
+
+    <!-- PANEL (to define outside of page-->
+    <div id="mainNav" data-role="panel" data-position="left" data-display="push">
+        <div id="profile-panel-pix" >
+            <img id="signinUserPix" src="images/noprofilepix.png" />
+        </div>
+        <div id="profile-panel-name">
+            <p align="center" id="sgSigninUserName">Guest</p>
+        </div>
+        <div id="profile-panel-signout">
+                <!--<button id="logoutbtn">SIGNOUT</button>-->
+                <a href="#" id="signoutbtn" data-role="button" class="ui-btn ui-btn-corner-all ui-btn-inline ui-btn-signout">SIGNOUT</a>
+                <a href="#settings" id="settingbtn" data-role="button" data-rel="dialog" class="ui-btn ui-btn-icon-notext ui-icon-gear ui-btn-setting" hover="Settings">SETTING</a>
+        </div>
+
+        <ul data-role="listview" data-inset="true" data-theme="a" class="side-panel-listview">
+            <li class="ui-li-divider">MOMENTS</li>
+            <!--<li><a href="#home">Home</a></li> -->
+            <li class="lv-menu-item" data-icon="false" ><a href="#allposts">ALL MOMENTS</a></li>
+            <li class="lv-menu-item" data-icon="false" ><a href="#myposts">MY MOMENTS</a></li>
+            <li class="ui-li-divider">ABOUT</li>
+            <li class="lv-menu-item" data-icon="false" ><a href="#feedback" data-rel="dialog" data-transition="slideup">FEEDBACK</a></li>
+            <li class="lv-menu-item" data-icon="false" ><a href="#about" data-transition="slidedown">ABOUT</a></li>
+            <li class="lv-menu-item" data-icon="false" ><a href="#contact" data-transition="slidedown">CONTACTS</a></li>
+
+        </ul>
+
+    </div>
+
+
+    <!-- ALL POST page -->
+    <div data-role="page" id="allposts">
+        <div data-role="header" data-position="fixed" class="sticky-header">
+            <a href="#mainNav" class="ui-btn ui-icon-bars ui-btn-icon-left">MOMENTS</a>
+            <!-- <a href="#newpost" class="ui-btn ui-btn-a ui-icon-plus ui-btn-icon-left">New Moment</a> -->
+            <h1> </h1>
+            <div data-role="controlgroup" class="ui-btn-right ui-btn-access" id="topBarAllPost">
+                <!-- create dynamically -->
+                <a href="#login" data-role="button"  data-rel="dialog" data-dismissible="false" data-transition="slide" class="ui-btn ui-btn-corner-all ui-btn-login">LOGIN</a>
+                <a href="#signup" data-role="button" data-rel="dialog" data-transition="slide" class="ui-btn ui-btn-corner-all ui-btn-signup">SIGNUP</a>
+            </div>
+
+        </div>
+
+        <div data-role="main" class="ui-content">
+
+            <div id="all-moments">
+                <!-- created dynamically -->
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed" class="sticky-footer">
+            <h5>&copy; 2019 Moments Inc. All Rights Reserved.</h5>
+        </div>
+
+    </div>
+
+    <!-- MY POST page -->
+    <div data-role="page" id="myposts">
+        <div data-role="header" data-position="fixed" class="sticky-header">
+            <a href="#mainNav" class="ui-btn ui-icon-bars ui-btn-icon-left">MOMENTS</a>
+            <!--<a href="#newpost" class="ui-btn ui-btn-a ui-icon-plus ui-btn-icon-left ui-btn-newmoment">New Moment</a>-->
+            <h1> </h1>
+            <div data-role="controlgroup" class="ui-btn-right ui-btn-access" id="topBarMyPost">
+                <!-- created dynamically -->
+            </div>
+        </div>
+
+        <div data-role="main" class="ui-content">
+
+            <div id="user-moments">
+                <!-- created dynamically -->
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed" class="sticky-footer">
+            <h5>&copy; 2019 Moments Inc. All Rights Reserved.</h5>
+        </div>
+    </div>
+
+
+    <!-- FEEDBACK page -->
+    <div data-role="page" id="feedback">
+        <div data-role="header">
+            <h1>FEEDBACK</h1>
+            <a href="" data-rel="back" class="ui-btn ui-btn-corner-all ui-btn-inline ui-shadow ui-icon-delete ui-btn-icon-notext">Click</a>
+        </div>
+
+        <div data-role="main" class="ui-content">
+
+            <form id="feedbackform" class="ui-body ui-body-a ui-corner-all">
+
+                <label for="fbname">Your Name <span style="color:red">*</span></label>
+                <input type="text" name="fbname" id="fbname" value="" data-clear-btn="true" placeholder="Your name">
+                <label for="fbemail">Your Email <span style="color:red">*</span></label>
+                <input type="text" name="fbemail" id="fbemail" value="" data-clear-btn="true" placeholder="youremail@yourdomain.com">
+                <label for="fbfeedback">Your Feedback <span style="color:red">*</span></label>
+                <textarea name="fbfeedback" id="fbfeedback" ></textarea>
+
+                <div class="ui-input-btn ui-btn ui-btn-corner-all ui-shadow">
+                    SUBMIT
+                    <input class="ui-btn ui-btn-corner-all ui-btn-submit_feedback" type="submit" id="submitfeedback" data-enhanced="true">
+                </div>
+            </form>
+
+        </div>
+
+        <div data-role="footer" data-position="fixed" class="sticky-footer">
+            <h5>&copy; 2019 Moments Inc. All Rights Reserved.</h5>
+        </div>
+    </div>
+
+    <!-- ABOUT page -->
+    <div data-role="page" id="about">
+        <div data-role="header" data-position="fixed" class="sticky-header">
+            <a href="#mainNav" class="ui-btn ui-icon-bars ui-btn-icon-left">MOMENTS</a>
+            <h1> </h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <br>
+            <div class="ui-corner-all custom-corners">
+                  <div class="ui-bar ui-bar-a">
+                    <h3>ABOUT</h3>
+                  </div>
+                  <div class="ui-body ui-body-a">
+                    <p>Moments is a photo sharing blog for photography enthusiastic to share the beautiful and unforgettable moments in their life. Memories are timeless treasure of the heart.
+                        When you think of the past. It gives you tons of happiness. Each one of us have some important moments to think. They stay in our heart for years and years. With Moments, you can share
+                        your treasure moments with everyone!
+                    </p>
+                  </div>
+            </div>
+            <br>
+            <div class="ui-corner-all custom-corners">
+                  <div class="ui-bar ui-bar-a">
+                        <h3>QUOTE</h3>
+                  </div>
+                  <div class="ui-body ui-body-a">
+                    <p>I've always believed in savoring the moments. In the end, they are the only things we'll have."</p>
+                    <h6 data-position="right"><em>Anna Godbersen</em></h6>
+                  </div>
+                  <div class="ui-body ui-body-a">
+                    <p>"We make patterns, we share moments."</p>
+                    <h6 data-position="right"><em>Jenny Downham</em></h6>
+                  </div>
+                  <div class="ui-body ui-body-a">
+                    <p>"I want to take all our best moments, put them in a jar, and take them out like cookies and savor each one of them forever.."</p>
+                    <h6 data-position="right"><em>Crystal Woods</em></h6>
+                  </div>
+            </div>
+            <br>
+            <div class="ui-corner-all custom-corners">
+                <div class="ui-bar ui-bar-a">
+                    <h3>DISCLAIMER</h3>
+                </div>
+                <div class="ui-body ui-body-a">
+                    <p>Moments Inc. claims no credit for any images posted on this site unless otherwise noted. Images on this blog are copyright to its respectful owners.
+                        If there is an image appearing on this blog that belongs to you and do not wish for it appear on this site, please E-mail with a link to said image and it will be promptly removed.</p>
+                </div>
+            </div>
+        </div>
+        <div data-role="footer" data-position="fixed" class="sticky-footer">
+            <h5>&copy; 2019 Moments Inc. All Rights Reserved.</h5>
+        </div>
+
+    </div>
+
+
+    <!-- CONTACT page -->
+    <div data-role="page" id="contact">
+        <div data-role="header" data-position="fixed" class="sticky-header">
+            <a href="#mainNav" class="ui-btn ui-icon-bars ui-btn-icon-left">MOMENTS</a>
+            <h1> </h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <br>
+            <div class="ui-corner-all custom-corners">
+                  <div class="ui-bar ui-bar-a">
+                    <h3>LOCATE ME</h3>
+                  </div>
+                  <div class="ui-body ui-body-a">
+                    <p><strong>Moments Inc. @ SP, 500 Dover Road, Singapore 139651</strong></p>
+                    <div id="map" width="#" height="#"></div>
+                  </div>
+            </div>
+
+            <div class="ui-corner-all custom-corners">
+                  <div class="ui-bar ui-bar-a">
+                    <h3>CONTACT ME</h3>
+                  </div>
+                  <div class="ui-body ui-body-a">
+                    <button class="ui-btn ui-btn-corner-all"><a href="mailto:neo_yew_chuan_liang01.pt@ichat.sp.edu.sg"><h5>CONTACTS@MOMENTSINC.COM</h5></a></button>
+                  </div>
+            </div>
+
+        </div>
+        <div data-role="footer" data-position="fixed" class="sticky-footer">
+            <h5>&copy; 2019 Moments Inc. All Rights Reserved.</h5>
+        </div>
+
+    </div>
+
+    <!-- LOGIN -->
+    <div data-role="page" id="login">
+        <div data-role="header">
+            <h1>LOGIN</h1>
+            <a href="" data-rel="back" class="ui-btn ui-btn-corner-all ui-btn-inline ui-shadow ui-icon-delete ui-btn-icon-notext">Click</a>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <form id="loginform" class="ui-body ui-body-a ui-corner-all">
+                <fieldset>
+                    <div data-role="input">
+                        <label>
+                            <input type="text" name="email" id="fbUserEmail" placeholder="Email" required/>
+                        </label>
+                    </div>
+                    <div data-role="input">
+                        <label>
+                            <input name="fbUserPass" id="fbUserPass" type="password" placeholder="Password" data-password-toggle="true" data-icon-show="eye" data-icon-hide="eye-blocked" required/>
+                        </label>
+                    </div>
+                    <button class="ui-btn ui-btn-corner-all" id="usignin" type="submit">Sign In</button>
+
+                </fieldset>
+            </form>
+
+        </div>
+
+        <div data-role="footer" data-position="fixed" class="sticky-footer">
+            <h5>&copy; 2019 Moments Inc. All Rights Reserved.</h5>
+        </div>
+    </div>
+
+    <!-- SIGNUP -->
+    <div data-role="page" id="signup">
+        <div data-role="header">
+            <h1>SIGNUP</h1>
+            <a href="" data-rel="back" class="ui-btn ui-btn-corner-all ui-btn-inline ui-shadow ui-icon-delete ui-btn-icon-notext">Click</a>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <form id="signupform" class="ui-body ui-body-a ui-corner-all">
+                <fieldset>
+                    <div id="profile-container" class="sg-profile-pix">
+                        <img id="sgProfilePix" src="images/noprofilepix.png" alt="Profile Pix"/>
+                    </div>
+                    <input id="sgProfilePixBtn" type="file" name="profile_photo" placeholder="Photo" required="" capture>
+                    <label>
+                        <input name="displayName" id="sgDisplayName" type="text" placeholder="Display Name" required>
+                    </label>
+                    <label>
+                        <input name="email" id="sgEmail" type="email" placeholder="Email" required>
+                    </label>
+
+                    <label>
+                        <input id="sgPass" name="password" type="password" placeholder="Password" data-password-toggle="true" pattern="(?=.*[a-z])(?=.*[A-Z]).{6,}" required>
+                    </label>
+                </fieldset>
+                <div class="form-group-inset">
+                    <h6>Use lowercase and uppercase characters </h6>
+                    <h6>Length of password should be at least 6 characters</h6>
+                    <button class="ui-btn ui-btn-corner-all" id="usignup" type="submit">Sign Up</button>
+                </div>
+
+            </form>
+        </div>
+
+        <div data-role="footer" data-position="fixed" class="sticky-footer">
+            <h5>&copy; 2019 Moments Inc. All Rights Reserved.</h5>
+        </div>
+
+    </div>
+
+    <!-- SETTINGS -->
+    <div data-role="page" id="settings">
+        <div data-role="header">
+            <h1>SETTINGS</h1>
+            <a href="" data-rel="back"
+                class="ui-btn ui-btn-corner-all ui-btn-inline ui-shadow ui-icon-delete ui-btn-icon-notext">Click</a>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <form id="settingsform" class="ui-body ui-body-a ui-corner-all">
+                <fieldset>
+                    <div id="profile-containerX" class="sg-profile-pix">
+                        <img id="sgProfilePixX" src="images/noprofilepix.png" alt="Profile Pix" />
+                    </div>
+                    <input id="sgProfilePixBtnX" type="file" name="profile_photo" placeholder="Photo" required="" capture>
+                    <label>
+                        <input name="displayName" id="sgDisplayNameX" type="text" placeholder="Display Name" required>
+                    </label>
+                    <label>
+                        <input name="email" id="sgEmailX" type="email" placeholder="Email" disabled>
+                    </label>
+
+                </fieldset>
+                <div class="form-group-inset">
+                    <h6>Use lowercase and uppercase characters </h6>
+                    <h6>Length of password should be at least 6 characters</h6>
+                    <button class="ui-btn ui-btn-corner-all" id="usettings" type="submit">Update Profile</button>
+                </div>
+
+            </form>
+        </div>
+
+        <div data-role="footer" data-position="fixed" class="sticky-footer">
+            <h5>&copy; 2019 Moments Inc. All Rights Reserved.</h5>
+        </div>
+
+    </div>
+
+
+    <!-- NEW POST -->
+    <div data-role="page" id="newpost">
+
+        <div data-role="header" class="sticky-header">
+            <a href="#mainNav" class="ui-btn ui-icon-bars ui-btn-icon-left">MOMENTS</a>
+            <h1> </h1>
+        </div>
+
+        <div data-role="main" class="ui-content" >
+            <br>
+            <br>
+            <h3>NEW MOMENTS</h3>
+            <form id="frmnewpost">
+                <img id="showpicture" src="#" width="100%" height="420">
+
+                <div class="ui-grid-a ui-responsive-panel">
+                    <!--
+                    <div id="image-selector" class="ui-btn ui-corner-all image-input-button">
+
+                        <input id="takepicture" type="file" accept="image/*" capture required>
+                    </div>
+                    -->
+
+                    <label class="btn-upload">
+                        <input id="takepicture" type="file" accept="image/*" capture required>
+                        <label class="btn">Select Image</label>
+                    </label>
+
+                    <div id="image-filter">
+                            <!--<label for="npimgfilter" class="ui-hidden-accessible">Filter</label>-->
+                             <select id="npimgfilter" name="npimgfilter">
+                                <option value="">No Filter</option>
+                                <option value="grayscale()">I love Gray</option>
+                                <option value="saturate(3)">I love Colors</option>
+                                <option value="sepia()">Retro</option>
+                                <option value="brightness(1.5)">Sunny</option>
+                                <option value="brightness(0.5)">Darkness</option>
+                                <option value="blur(10px)">Blur Me</option>
+                                <option value="opacity(.2)">Almost Disappear</option>
+                                <option value="invert(99%)">Alternate Universe</option>
+                            </select>
+                    </div>
+
+                </div>
+
+                <label for="nptitle">Title</label>
+                <input type="text" name="nptitle" id="nptitle" value="" data-clear-btn="true" required>
+                <label for"npstory">Story</label>
+                <textarea name="npstory" id="npstory" data-clear-btn="true" required></textarea>
+
+                <div class="ui-input-btn ui-btn ui-btn-corner-all ui-shadow">
+                    SUBMIT
+                    <input type="submit" id="npsubmit" data-enhanced="true" value="SUBMIT">
+                </div>
+            </form>
+
+        </div>
+        <div data-role="footer" data-position="fixed" class="sticky-footer">
+            <h5>&copy; 2019 Moments Inc. All Rights Reserved.</h5>
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-1.12.2.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-storage.js"></script>
+    <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.1/firebase-database.js"></script>
+
+    <script type="text/javascript" src="js/moment.js"> </script>
+    <script async defer
+            type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7ciXzBnwWJi8mQR9aGPvYBKxr3zmcwMI&callback=initMap">
+    </script>
+
+</body>

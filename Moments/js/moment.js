@@ -21,7 +21,7 @@ let allUsersRef;
 
 // firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyAfB4CpHi3m3u4G_tLm_q-aI2f91z4Yw2I",
+    apiKey: "{GoogleApiKey}",
     authDomain: "fir-testproject-b5043.firebaseapp.com",
     databaseURL: "https://fir-testproject-b5043.firebaseio.com",
     projectId: "fir-testproject-b5043",
